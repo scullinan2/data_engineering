@@ -6,27 +6,32 @@ from typing import Union
 
 
 class EspnFantasyFootball:
+    
+    """
+        |  https://www.reddit.com/r/fantasyfootball/comments/ct4hf3/new_espn_api/ -- contains views we can ideally support
+        |  mTeam: returns a list of members and teams (with record for the season)
+        |  mSettings: returns league settings, including previous seasons
+        |  mRoster: returns a list of team IDs with their current(?) roster
+        |  mStandings: returns a list of all scores for the chosen season
+        |  mMatchup: returns a more detailed schedule for the chosen season, but without rosters
+        |  mMatchupScore: returns a more detailed schedule for the chosen season, including rosters(?)
+        |  mScoreboard
+        |  mStatus
+        |  mPendingTransactions
+        |  mLiveScoring
+        |  mPositionalRatings
+
+        :param swid: id used during api connection
+        :param espn_s2: id used during api connection
+        :param league_id: league from which we are pulling data
+    """
 
     def __init__(self, swid: str=None, espn_s2: str=None, league_id: Union[int, str]=None):
+
         self.new_url     = 'https://fantasy.espn.com/apis/v3/games/ffl/seasons/{year}/segments/0/leagues/{id}'
         self.old_url     = 'https://fantasy.espn.com/apis/v3/games/ffl/leagueHistory/{id}?seasonId={year}'
         self.cookies     = {'swid': swid, 'espn_s2': espn_s2}
         self.league_id   = str(league_id)
-
-    """
-        https://www.reddit.com/r/fantasyfootball/comments/ct4hf3/new_espn_api/ -- contains views we can ideally support
-        mTeam: returns a list of members and teams (with record for the season)
-        mSettings: returns league settings, including previous seasons
-        mRoster: returns a list of team IDs with their current(?) roster
-        mStandings: returns a list of all scores for the chosen season
-        mMatchup: returns a more detailed schedule for the chosen season, but without rosters
-        mMatchupScore: returns a more detailed schedule for the chosen season, including rosters(?)
-        mScoreboard
-        mStatus
-        mPendingTransactions
-        mLiveScoring
-        mPositionalRatings
-    """
 
     def get_view_data(self, year: int=datetime.now().year - 1, param: str=None):
         """
