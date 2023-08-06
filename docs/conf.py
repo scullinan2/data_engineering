@@ -8,15 +8,6 @@
 
 import sys, os
 
-#sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
-#sys.path.insert(0, os.path.abspath(".."))
-#sys.path.insert(0, os.path.abspath(os.path.join('..', '..', 'sources')))
-#basedir = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..'))
-#sys.path.insert(0, basedir)
-#sys.path.insert(0, os.path.abspath('../sources'))
-#sys.path.append(os.path.join(os.path.dirname(__file__)))
-#print(sys.path)
-#sys.path.append('..')
 sys.path.insert(0, os.path.abspath('../data_loaders')) 
 
 project = "shane's data loaders"

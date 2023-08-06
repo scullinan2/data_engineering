@@ -5,3 +5,6 @@ make html - recreates the actual docs
 to scan everything
 cd docs
 sphinx-apidoc -o ./source ../data_loaders 
+
+to get imports working
+pip install -e .
