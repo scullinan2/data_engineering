@@ -14,7 +14,6 @@ config_data = load(config_f, Loader=FullLoader)
 espn_fantasy_football = EspnFantasyFootball(swid=config_data['swid'], espn_s2=config_data['espn_s2'], league_id=config_data['league_id'])
 
 views = ['mSettings', 'mRoster', 'mStandings', 'mMatchup', 'mMatchupScore', 'mScoreboard', 'mStatus', 'mPendingTransactions', 'mLiveScoring', 'mPositionalRatings']
-years = ['2013', '2014', '2015', '2016', '2017', '2018', '2019', '2020', '2021', '2022']
 
 for view in views:
     for year in range(2013, 2023):
